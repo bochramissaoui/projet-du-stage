@@ -1,0 +1,31 @@
+@import "../dashboards.component.css";
+
+.edit-icon {
+  font-size: 17px;
+  color: blue;
+  margin-right: 15px;
+}
+.see-more-icon {
+  font-size: 17px;
+  color: #5a5af3;
+  margin-right: 15px;
+}
+
+.trash-icon, .trash-icon:hover {
+  font-size: 17px;
+  color: red;
+}
+
+th {
+  color: #7c69ef;
+}
+
+.label {
+  color: #5a5af3;
+  font-weight: 600;
+}
+
+.details {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}

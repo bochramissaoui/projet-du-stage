@@ -1,0 +1,221 @@
+<div class="pagetitle">
+    <h1>Admin Dashboard</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="../../admin/main">Dashboard</a></li>
+        </ol>
+    </nav>
+</div>
+<!-- End Page Title -->
+
+<section class="section dashboard">
+
+    <!---Cards 1 -->
+    <div class="row">
+        <!-- Advertisers Card -->
+        <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+                <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                            <h6>Filter</h6>
+                        </li>
+                        <li><a class="dropdown-item">Today</a></li>
+                        <li><a class="dropdown-item">This Month</a></li>
+                        <li><a class="dropdown-item">This Year</a></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Advertisers <span>| Total</span></h5>
+                    <div class="d-flex align-items-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-person"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h6>10</h6>
+                            <span class="text-muted small pt-2 ps-1">Advertiser</span>
+                        </div>
+                        <div class="text-center ps-3" *ngIf="false">
+                            <span class="spinner-border spinner-border-sm mr-1"></span>
+                            <p>Fetching data ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Consumer Card -->
+        <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+                <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                            <h6>Filter</h6>
+                        </li>
+                        <li><a class="dropdown-item">Today</a></li>
+                        <li><a class="dropdown-item">This Month</a></li>
+                        <li><a class="dropdown-item">This Year</a></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Consumers <span>| Total</span></h5>
+                    <div class="d-flex align-items-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-person-badge"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h6>10</h6>
+                            <span class="text-muted small pt-2 ps-1">Consumer</span>
+                        </div>
+                        <div class="text-center ps-3" *ngIf="false">
+                            <span class="spinner-border spinner-border-sm mr-1"></span>
+                            <p>Fetching data ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location Partners Card -->
+        <div class="col-xxl-4 col-xl-12">
+            <div class="card info-card customers-card">
+                <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                            <h6>Filter</h6>
+                        </li>
+                        <li><a class="dropdown-item">Today</a></li>
+                        <li><a class="dropdown-item">This Month</a></li>
+                        <li><a class="dropdown-item">This Year</a></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Location partners <span>| Total</span></h5>
+                    <div class="d-flex align-items-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h6>10</h6>
+                            <span class="text-muted small pt-2 ps-1">Location partner</span>
+                        </div>
+                        <div class="text-center ps-3" *ngIf="false">
+                            <span class="spinner-border spinner-border-sm mr-1"></span>
+                            <p>Fetching data ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---Cards 2 -->
+    <div class="row">
+        <!-- Routers  Card -->
+        <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+                <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                            <h6>Filter</h6>
+                        </li>
+                        <li><a class="dropdown-item">Today</a></li>
+                        <li><a class="dropdown-item">This Month</a></li>
+                        <li><a class="dropdown-item">This Year</a></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Routers <span>| Total</span></h5>
+
+                    <div class="d-flex align-items-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                class="bi bi-router" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M5.525 3.025a3.5 3.5 0 0 1 4.95 0 .5.5 0 1 0 .707-.707 4.5 4.5 0 0 0-6.364 0 .5.5 0 0 0 .707.707ZM6.94 4.44a1.5 1.5 0 0 1 2.122 0 .5.5 0 0 0 .707-.707 2.5 2.5 0 0 0-3.536 0 .5.5 0 0 0 .707.707ZM2.974 2.342a.5.5 0 1 0-.948.316L3.806 8H1.5A1.5 1.5 0 0 0 0 9.5v2A1.5 1.5 0 0 0 1.5 13H2a.5.5 0 0 0 .5.5h2A.5.5 0 0 0 5 13h6a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5h.5a1.5 1.5 0 0 0 1.5-1.5v-2A1.5 1.5 0 0 0 14.5 8h-2.306l1.78-5.342a.5.5 0 1 0-.948-.316L11.14 8H4.86L2.974 2.342ZM6.5 9h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h5Zm-4 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1Zm4.5-.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0Zm2.5.5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1Zm1.5-.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0Zm2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0Zm-4.5-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z" />
+                            </svg>
+                        </div>
+                        <div  class="ps-3">
+                            <h6>10</h6>
+                            <span class="text-muted small pt-2 ps-1">Router</span>
+                        </div>
+                        <div class="text-center ps-3" *ngIf="false">
+                            <span class="spinner-border spinner-border-sm mr-1"></span>
+                            <p>Fetching data ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advertising campaign  Card -->
+        <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+                <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                            <h6>Filter</h6>
+                        </li>
+                        <li><a class="dropdown-item">Today</a></li>
+                        <li><a class="dropdown-item">This Month</a></li>
+                        <li><a class="dropdown-item">This Year</a></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Advertising Campaigns <span>| Total</span></h5>
+                    <div class="d-flex align-items-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-badge-ad"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h6>10</h6>
+                            <span class="text-muted small pt-2 ps-1">Advertising campaign</span>
+                        </div>
+                        <div class="text-center ps-3" *ngIf="false">
+                            <span class="spinner-border spinner-border-sm mr-1"></span>
+                            <p>Fetching data ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Views Card -->
+        <div class="col-xxl-4 col-xl-12">
+            <div class="card info-card customers-card">
+                <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                            <h6>Filter</h6>
+                        </li>
+                        <li><a class="dropdown-item">Today</a></li>
+                        <li><a class="dropdown-item">This Month</a></li>
+                        <li><a class="dropdown-item">This Year</a></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Views <span>| Total</span></h5>
+                    <div class="d-flex align-items-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-eye"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h6>10</h6>
+                            <span class="text-muted small pt-2 ps-1">View</span>
+                        </div>
+                        <div class="text-center ps-3" *ngIf="false">
+                            <span class="spinner-border spinner-border-sm mr-1"></span>
+                            <p>Fetching data ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,271 @@
+<main id="main">
+  <!-- ======= Welcome Section ======= -->
+  <section id="welcome" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-2 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center hero-img">
+          <img src="../../../assets/img/hero-img.png" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2">
+          <!-- Start Multiform HTML -->
+          <form (ngSubmit)="submit()" [formGroup]="multistepform">
+            <!-- Tittle -->
+            <h1>Create Account</h1>
+            <p id="subtitle">In order to use this service, you have to complete this verification process
+            </p>
+            <!-- progressbar -->
+            <ul id="progressbar">
+              <li [class.active]="step == 1 ||  step==2 || step ==3">Personal info</li>
+              <li [class.active]="step == 2 || step==3">Business info</li>
+              <li [class.active]="step == 3">Confirmation</li>
+            </ul>
+
+            <!--Step One -->
+            <div *ngIf="step == 1" formGroupName="personalInfo">
+              <div class="row justify-content-between">
+                <div class="col-md-6 form-group mt-2">
+                  <label class="form-label">First Name</label>
+                  <input type="text" placeholder="Firstname" formControlName="firstname" class="form-control" [ngClass]="{ 'is-invalid': (submittedPersonalInfo || personalInfo.firstname.touched) &&
+                          personalInfo.firstname.errors,'is-valid': personalInfo.firstname.valid}" />
+                  <div
+                    *ngIf="(submittedPersonalInfo || personalInfo.firstname.touched) && personalInfo.firstname.errors"
+                    class="invalid-feedback">
+                    <div *ngIf=" personalInfo.firstname.touched || personalInfo.firstname.errors.required">
+                      First Name is
+                      required.
+                    </div>
+                  </div>
+                  <div *ngIf="personalInfo.firstname.valid" class="valid-feedback">
+                    <div>Looks Good.</div>
+                  </div>
+
+                </div>
+                <div class="col-md-6 form-group mt-2">
+                  <label class="form-label">Last Name</label>
+                  <input type="text" placeholder="Lastname" formControlName="lastname" class="form-control" [ngClass]="{ 'is-invalid': (submittedPersonalInfo || personalInfo.lastname.touched ) &&
+                          personalInfo.lastname.errors,'is-valid': personalInfo.lastname.valid }" />
+                  <div *ngIf=" (submittedPersonalInfo || personalInfo.lastname.touched) && personalInfo.lastname.errors"
+                    class="invalid-feedback">
+                    <div *ngIf=" personalInfo.lastname.errors.required">
+                      Last Name is
+                      required.
+                    </div>
+                  </div>
+                  <div *ngIf="personalInfo.lastname.valid" class="valid-feedback">
+                    <div>Looks Good.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mt-2">
+                <label class="form-label">Phone</label>
+                <input type="text" placeholder="Phone number" formControlName="phone" class="form-control"
+                  [ngClass]="{ 'is-invalid': (submittedPersonalInfo || personalInfo.phone.touched) && personalInfo.phone.errors, 'is-valid': personalInfo.phone.valid }" />
+                <div *ngIf=" (submittedPersonalInfo || personalInfo.phone.touched) && personalInfo.phone.errors"
+                  class="invalid-feedback">
+                  <div *ngIf="personalInfo.phone.errors.required">Phone
+                    number is
+                    required.
+                  </div>
+                  <div *ngIf="personalInfo.phone.errors.pattern">Please enter a valid phone number.
+                  </div>
+                  <div *ngIf="personalInfo.phone.errors.minlength">The minimum length for this field
+                    is
+                    {{personalInfo.phone.errors.minlength.requiredLength}}
+                    number.
+                  </div>
+                </div>
+                <div *ngIf="personalInfo.phone.valid" class="valid-feedback">
+                  <div>Looks Good.</div>
+                </div>
+              </div>
+              <div class="form-group mt-2">
+                <label class="form-label">Email</label>
+                <input type="text" placeholder="name@example.com" formControlName="email" class="form-control"
+                  [ngClass]="{ 'is-invalid': ((submittedPersonalInfo || personalInfo.email.touched)
+                        && personalInfo.email.errors) || emailExists,
+                         'is-valid': personalInfo.email.valid && !emailExists}" />
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                </div>
+                <div *ngIf="(submittedPersonalInfo || personalInfo.email.touched)
+                   && personalInfo.email.errors " class="invalid-feedback">
+                  <div *ngIf="personalInfo.email.errors.required">Email is
+                    required.
+                  </div>
+                  <div *ngIf="personalInfo.email.errors.pattern">Please enter a valid email address.
+                  </div>
+                </div>
+                <div *ngIf="submittedPersonalInfo && emailExists" class="invalid-feedback"> Sorry...Email already
+                  taken.
+                </div>
+                <div *ngIf="personalInfo.email.valid && !emailExists" class="valid-feedback">
+                  <div>Looks Good.</div>
+                </div>
+              </div>
+              <div class="form-group mt-2">
+                <label class="form-label">Password</label>
+                <input placeholder="Password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid':(submittedPersonalInfo || personalInfo.password.touched) &&
+                        personalInfo.password.errors,'is-valid': personalInfo.password.valid }" />
+                <small id="passwordHelpBlock" class="form-text" *ngIf="personalInfo.password.dirty">
+                  Your password must be 8-20 characters long, contain letters and numbers,
+                  special characters and must not contain spaces.
+                </small>
+                <div *ngIf="(submittedPersonalInfo || personalInfo.password.touched) && personalInfo.password.errors"
+                  class="invalid-feedback">
+                  <div *ngIf="personalInfo.password.errors.required">
+                    Password is
+                    required.
+                  </div>
+                  <div *ngIf="personalInfo.password.errors.pattern">
+                    Please check the rules to respect regarding passwords.
+                  </div>
+                  <div *ngIf="personalInfo.password.errors.minlength">The
+                    minimum length for this field
+                    is {{personalInfo.password.errors.minlength.requiredLength}} number.
+                  </div>
+                  <div *ngIf="personalInfo.password.errors.maxlength">The
+                    maximum length for this field
+                    is {{personalInfo.password.errors.maxlength.requiredLength}} number.
+                  </div>
+                </div>
+                <div *ngIf="personalInfo.password.valid" class="valid-feedback">
+                  Looks Good.
+                </div>
+              </div>
+              <div class="form-group mt-2">
+                <label class="form-label">Re-enter
+                  Password</label>
+                <input placeholder="Re-enter Password" type="password" formControlName="cpassword" class="form-control"
+                  [ngClass]="{ 'is-invalid': (submittedPersonalInfo || personalInfo.cpassword.touched) && (personalInfo.cpassword.errors || personalInfo.password.value !== personalInfo.cpassword.value),
+                                    'is-valid': personalInfo.cpassword.valid && (personalInfo.password.value === personalInfo.cpassword.value)}" />
+                <div
+                  *ngIf=" submittedPersonalInfo || personalInfo.cpassword.touched && personalInfo.cpassword.errors || personalInfo.cpassword.touched && personalInfo.password.value !== personalInfo.cpassword.value"
+                  class="invalid-feedback">
+                  <div *ngIf="personalInfo.cpassword.errors.required">
+                    Re-enter password
+                    is required.
+                  </div>
+                  <div
+                    [ngStyle]="{'visibility':personalInfo.password.value === personalInfo.cpassword.value? null:hidden}">
+                    Passwords doesn't match.
+                  </div>
+                </div>
+                <div
+                  *ngIf="personalInfo.cpassword.valid && (personalInfo.password.value === personalInfo.cpassword.value)"
+                  class="valid-feedback">
+                  <div>Looks Good.</div>
+                </div>
+              </div>
+            </div>
+
+            <!--Step Two -->
+            <div *ngIf="step == 2" formGroupName="businessInfo">
+              <div class="form-group mt-2">
+                <label class="form-label">Company Name</label>
+                <input type="text" placeholder="Company Name" formControlName="companyName" class="form-control"
+                  [ngClass]="{ 'is-invalid': (submitted || businessInfo.companyName.touched) && businessInfo.companyName.errors,'is-valid': businessInfo.companyName.valid }" />
+                <div *ngIf="( submitted || businessInfo.companyName.touched ) && businessInfo.companyName.errors"
+                  class="invalid-feedback">
+                  <div
+                    *ngIf=" ( submitted || businessInfo.companyName.touched ) && businessInfo.companyName.errors.required">
+                    Company Name
+                    is required.
+                  </div>
+                </div>
+                <div *ngIf="businessInfo.companyName.valid" class="valid-feedback">
+                  <div>Looks Good.</div>
+                </div>
+              </div>
+              <div class="form-group mt-2">
+                <label class="form-label">Company Address</label>
+                <input type="text" placeholder="Company Address" formControlName="companyAddress" class="form-control"
+                  [ngClass]="{ 'is-invalid': (submitted || businessInfo.companyAddress.touched) && businessInfo.companyAddress.errors,
+                                    'is-valid': businessInfo.companyAddress.valid }" />
+                <div *ngIf=" (submitted || businessInfo.companyAddress.touched) && businessInfo.companyAddress.errors"
+                  class="invalid-feedback">
+                  <div
+                    *ngIf=" (submitted || businessInfo.companyAddress.touched) && businessInfo.companyAddress.errors.required">
+                    Company Address is
+                    required.
+                  </div>
+                </div>
+                <div *ngIf="businessInfo.companyAddress.valid" class="valid-feedback">
+                  <div>Looks Good.</div>
+                </div>
+              </div>
+              <div class="form-group mt-2">
+                <label class="form-label">Company Activity</label>
+                <select class="form-select form-control" id="inlineFormSelectPref" formControlName="companyActivity"
+                  [ngClass]="{ 'is-invalid': (submitted || businessInfo.companyActivity.touched) && businessInfo.companyActivity.errors,
+                                'is-valid': businessInfo.companyActivity.valid }">
+                  <option value="" selected disabled>Please Choose One</option>
+                  <option *ngFor="let businesssectoritem of businesssectors" [value]="businesssectoritem">
+                    {{businesssectoritem}}
+                  </option>
+                </select>
+                <div *ngIf=" (submitted || businessInfo.companyActivity.touched) && businessInfo.companyActivity.errors"
+                  class="invalid-feedback">
+                  <div
+                    *ngIf=" (submitted || businessInfo.companyActivity.touched) && businessInfo.companyActivity.errors.required">
+                    Company Activity is
+                    required.
+                  </div>
+                </div>
+                <div *ngIf=" businessInfo.companyActivity.valid" class="valid-feedback">
+                  <div>Looks Good.</div>
+                </div>
+              </div>
+              <div class="form-group mt-2">
+                <label class="form-label">Website (optional)</label>
+                <input type="text" placeholder="www.example.com" formControlName="website" class="form-control" />
+              </div>
+              <div class="form-group mt-2">
+                <label class="form-label">Upload Brand Logo (optional) <span *ngIf="isUploaded"
+                    class="spinner-border spinner-border-sm ml-1"></span></label>
+                <input type="file" placeholder="Choose image..." class="custom-file-input form-control"
+                  accept="image/x-png,image/gif,image/jpeg" formControlName="logo" class="form-control"
+                  (change)="onUploadFiles($event.target.files)" />
+              </div>
+            </div>
+            <!--Step Three -->
+            <div class="mt-4" *ngIf="step == 3">
+              <h2 style="text-align: center;">Your account has been created ! </h2>
+              <h5 style="text-align: center;">An administrator will approve your account soon, Expect an
+                email from our team.</h5>
+              <h6 style="text-align: center;">You will be able to create ads and track your campaign as
+                soon as your account is
+                confirmed by Relead!</h6>
+            </div>
+            <!-- Buttons -->
+            <div class="form-group mt-4 row">
+              <button type="button" [disabled]="loading" (click)="next()" class="btn-sign-in" *ngIf="step == 1">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Next
+              </button>
+
+              <div class="row justify-content-between" *ngIf="step == 2">
+                <button type="button" class="btn-sign-in col-4" (click)="previous()">
+                  Back
+                </button>
+                <button type="submit" (click)="submit()" [disabled]="loading" class="btn-sign-in col-4">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Submit
+                </button>
+              </div>
+              <button type="button" class="btn-sign-in" *ngIf="step == 3" routerLink="/login">
+                Back to home page
+              </button>
+            </div>
+            <div class="row align-items-center" *ngIf="step == 1">
+              <div class="col-auto">
+                <h6>You already have an account ? <a style="cursor: pointer;" routerLink="/login"> Click
+                    here </a></h6>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Welcome -->
+</main>

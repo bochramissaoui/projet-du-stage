@@ -1,0 +1,49 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+            <a [ngClass]=" router === 'admin/main' ? 'nav-link ' : 'nav-link collapsed' " (click)="router='admin/main'"
+                routerLink="admin/main">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a [ngClass]=" router === 'admin/advertising-campaigns' ? 'nav-link ' : 'nav-link collapsed' "
+                (click)="router='admin/advertising-campaigns'" data-bs-target="#advertising-campaigns-nav"
+                data-bs-toggle="collapse" style="cursor: pointer;">
+                <i class="bi bi-badge-ad"></i><span>Advertising campaigns</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="advertising-campaigns-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a data-bs-target="#components2-nav" data-bs-toggle="collapse"
+                        routerLink="admin/advertising-campaigns/create-ad">
+                        <i class="bi bi-circle"></i><span>Create Ad</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-bs-target="#components2-nav" data-bs-toggle="collapse">
+                        <i class="bi bi-circle"></i><span>Waiting List</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-bs-target="#components2-nav" data-bs-toggle="collapse"
+                        routerLink="admin/advertising-campaigns">
+                        <i class="bi bi-circle"></i><span>Repository</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a [ngClass]=" router === 'admin/contact' ? 'nav-link ' : 'nav-link collapsed' "
+                (click)="router='admin/contact'" (click)="router='admin/contact'" routerLink="admin/contact">
+                <i class="bi bi-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </li>
+        <!-- End Contact Nav -->
+    </ul>
+</aside>
+<!-- End Sidebar-->

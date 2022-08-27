@@ -1,0 +1,12 @@
+.nav-item{
+    display: flex;
+}
+@import '../../admin.component.css';
+
+.label {
+    color: #5a5af3;
+  }
+
+  .url_endpoints{
+    font-weight: bold;
+  }

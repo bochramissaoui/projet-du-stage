@@ -1,0 +1,106 @@
+
+   <div class="pagetitle">
+    <h1>Advertising campaigns</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="../../main">Dashboard</a></li>
+            <li class="breadcrumb-item "><a routerLink="../"> Advertising campaigns</a></li>
+            <li class="breadcrumb-item active">Create ad</li>
+        </ol>
+    </nav>
+</div>
+
+<!-- Alert Error -->
+<div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+<div *ngIf="success" class="alert alert-success mt-3 mb-0">{{success}}</div>
+
+<!---Form-->
+<div class="col">
+    <form [formGroup]="createAdForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mt-2">
+            <label class="form-label label" for="title">Title</label>
+            <input type="text" placeholder="Please Enter Your Title" formControlName="title" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && (formValue.title.errors || notValid) }" />
+            <small id="passwordHelpBlock" class="form-text">
+                The title is the name that appears on your dashboard. It usually contains only letters, numbers and
+                hyphens. Avoid to use blank spaces when typing the title. <br>
+                <b>Example of titles:</b> Adidas-spring-campaign.
+            </small>
+            <div *ngIf="submitted && formValue.title.errors" class="invalid-feedback">
+                <div *ngIf="formValue.title.errors.required">Please title is required.</div>
+            </div>
+            <div class="invalid-feedback" *ngIf="submitted && notValid">Please enter a valid title.</div>
+        </div>
+        <div class="form-group mt-2">
+            <label class="form-label label" for="starting_date">Starting date</label>
+            <input placeholder="Please Enter Your Starting Date" type="date" formControlName="starting_date"
+                class="form-control" rows="3" [ngClass]="{ 'is-invalid': submitted && formValue.starting_date.errors }">
+            <div *ngIf="submitted && formValue.starting_date.errors" class="invalid-feedback">
+                <div *ngIf="formValue.starting_date.errors.required">Please starting date is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group mt-2">
+            <label class="form-label label" for="end_date">End date</label>
+            <input placeholder="Please Enter Your End Date" type="date" formControlName="end_date" class="form-control"
+                rows="3" [ngClass]="{ 'is-invalid': submitted && formValue.end_date.errors }">
+            <div *ngIf="submitted && formValue.end_date.errors" class="invalid-feedback">
+                <div *ngIf="formValue.end_date.errors.required">Please end date is required.</div>
+            </div>
+        </div>
+        <a routerLink="map" routerLinkActive="active" class="nav-link" ></a>
+        <div class = "container">
+          <router-outlet></router-outlet>
+         
+        </div>
+
+        <div class="form-group mt-2">
+            <label class="form-label label" for="video_link">Upload video <span *ngIf="isUploaded"
+                    class="spinner-border spinner-border-sm ml-1"></span></label>
+            <input type="file" placeholder="Please Upload Your Video" formControlName="video_link" class="form-control"
+                accept="image/x-png,image/gif,image/jpeg,video/*"
+                [ngClass]="{ 'is-invalid': submitted && formValue.video_link.errors }"
+                (change)="onUploadFiles($event.target.files)" />
+            <div *ngIf="submitted && formValue.video_link.errors" class="invalid-feedback">
+                <div *ngIf="formValue.video_link.errors.required">Please upload a video.</div>
+            </div>
+        </div>
+
+        <div class="form-group mt-2">
+            <label class="form-label label" for="redirection_link">Redirection link</label>
+            <input type="text" placeholder="Please Enter Your Redirection Link" formControlName="redirection_link"
+                class="form-control" [ngClass]="{ 'is-invalid': submitted && formValue.redirection_link.errors }" />
+            <div *ngIf="submitted && formValue.redirection_link.errors" class="invalid-feedback">
+                <div *ngIf="formValue.redirection_link.errors.required">Please redirection link is required.</div>
+                <div *ngIf="formValue.redirection_link.errors.pattern">Please enter a Valid URL.</div>
+                <small *ngIf="formValue.redirection_link.errors.pattern"> <span class="url_endpoints">Notice :</span>
+                    URL needs to start with <span class="url_endpoints"> https:// </span> Or <span
+                        class="url_endpoints"> http:// </span> </small>
+            </div>
+        </div>
+
+
+        <!-- Buttons -->
+        <div class="form-group mt-3 text-center">
+            <button type="button" (click)="onClear()" [disabled]="loading" class="btn btn-danger m-2">
+                Clear
+            </button>
+
+            <button type="submit" [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Confirm
+            </button>
+        </div>
+    </form>
+</div>
+<!--- End Form-->
+
+         
+         
+         
+         
+         
+         
+     
+  
+            
